@@ -1,0 +1,74 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.websocket.OnClose;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
+
+// WebSocket 호스트 설정
+@ServerEndpoint("/broadsocket")
+public class BroadSocket {
+	
+	// 접속된 클라이언트 WebSocket session 관리 리스트 정의
+	private static List<Session> sessionUsers = Collections.synchronizedList(new ArrayList<>());
+	
+	// 메세지에서 유저명을 취득하기 위한 정규식 패턴 표현 정의
+	private static Pattern pattern = Pattern.compile("");//"" 안에 정규식 패턴 넣어서 활용도 가능함
+	
+	// WebSocket의 브라우저가 접속하면 요청되는 함수 정의
+	@OnOpen
+	public void handleOpen(Session userSession) {
+		// 클라이언트가 접속하면 WebSocket 세션을 리스트에 저장합니다.
+		sessionUsers.add(userSession);
+		// 콘솔에 접속 로그를 출력 처리합니다.
+		System.out.println("client is now connected....");
+	}
+	
+	// WebSocket으로 메세지가 오면 요청되는 함수 정의
+	public void handleMessage(String message, Session userSession) {
+		// 메세지 내용을 콘솔에 출력 처리 합니다.
+		System.out.println(message);
+		// 초기 유저명
+		String name = "anonymous";
+		// 메세지로 유저명을 추출합니다.
+		Matcher matcher = pattern.matcher(message);
+		// 메세지 예 : {{유저명}} 메세지
+		if (matcher.find()) {
+			name = matcher.group();
+		}
+		// 변수의 상수화 : replaceAll(패턴턴에 맞는 값을 새로운 값으로 치환 처리함)
+		// replaceAll(regex, replacement)은 regex와 일치하는 내용을 replacement로 교체합니다.
+		final String msg = message.replaceAll(pattern.pattern(), "");
+		// String.replaceFirst(regex,replacement) : regex와 가장 먼저 일치하는 것을 replacement로 변환 처리함.
+		// "","" 각각의 첫번째 "" 안에 정규식을 넣어서 활용도 가능함
+		final String username = name.replaceFirst("", "").replaceFirst("", "");
+		sessionUsers.forEach(session -> {
+			// 리스트에 있는 세션과 메세지를 보낸 세션이 같으면 메세지 송신할 필요가 없습니다.
+			if(session == userSession) {
+				return;
+			}
+			try {
+				// 리스트에 있는 모든 세션(메세지를 보낸 유저 제외)에게 메세지를 보냅니다.
+				// 이때, 형식은 유저명 => 메세지 로 합니다.
+				session.getBasicRemote().sendText(username + " => " + msg);
+			} catch (IOException e) {
+				// 예외 상황이 발생하면  콘솔로 표시해 줍니다.
+				e.printStackTrace();
+			}
+		});
+		
+	}
+	// WebSocket과 브라우저가 접속이 끊기면 요처오디는 함수 정의
+	@OnClose
+	public void handleClose(Session userSession) {
+		// session 유저리스트에서 접속 끊은 세션을 제거합니다.
+		sessionUsers.remove(userSession);
+		// 콘솔에 접속 끊어진 정보에 대한 로그를 출력 처리 합니다.
+		System.out.println("client is now disconnected...");
+	}
+}

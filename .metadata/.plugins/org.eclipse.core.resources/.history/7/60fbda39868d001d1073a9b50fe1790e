@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ID 셀렉터 연습 : jQuery1.html 소스코딩</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+<!-- 제이쿼리의 id 선택자를 이용해서, 해당 id를 가지는 p태그(요소 또는 엘리먼트)에 접근하여
+	동적으로 텍스트를 추가하는 jQuery2.html을 작성해 봅니다. -->
+ 
+<script type="text/javascript">
+// document에 DOM(Document Object Model)이 로드되는 이벤트 처리 함수 정의
+$(doucument).ready(furnction(){
+	// 페이지 로드시 id가 unique1인 태그를 검색한 후
+	// html() 메서드를 이용해서 태그의 갑을 가져 옵니다.
+	alert($("#unique1").html());
+})
+
+</script>
+</head>
+<body>
+	<div class="class1">안녕하세요</div>
+	<div id="unique1">제이쿼리 입니다. 반갑습니다.</div>
+	<div id="unique2">
+	<p>제이쿼리는 아주 좋습니다.</p>
+	
+	</div>
+
+
+
+</body>
+</html>

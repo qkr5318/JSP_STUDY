@@ -1,0 +1,59 @@
+package sec01;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//Ajax 응답 시 플라워 정보를 XML로 전달 받아서 출력하는
+//xml 데이터 연동 웹 프로그램을 제작해 보겠습니다.
+//다음의 AjaxTest2 클래스는 title 태그, writer 태그, image 태그를 이용해서
+//플라워 정보를 xml 형식으로 작성한 후 브라우저로 전송합니다.
+
+@WebServlet("/ajaxText2")
+public class AjaxTest2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+  
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+
+	
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+	private void doHandler(HttpServletRequest request, HttpServletResponse response) throws IOException {
+			request.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+			
+			String result = "";
+			PrintWriter writer = response.getWriter();
+			
+			// 플라워 정보르 xml 형식으로 작성한 후 클라이언트로 전송합니다.
+			result = "<main><flower>" + 
+					"<title><![CDATA[첫번째 아름다운 플라워]]><title>" +
+					"<writer><![CDATA[사진작가 | 장나라]]></writer>" +
+					
+					// 제이쿼리로 접근시 WebContent 하위 image 폴더의 image1.jpg를 표시합니다.
+					"<image><![CDATA[http://localhost:9005/image/image1.jpg]]</image>" +
+					"</flower>" +
+					"<flower>" + 
+					"<title><![CDATA[첫번째 아름다운 플라워]]><title>" +
+					"<writer><![CDATA[사진작가 | 장나라]]></writer>" +
+					
+					// 제이쿼리로 접근시 WebContent 하위 image 폴더의 image1.jpg를 표시합니다.
+					"<image><![CDATA[http://localhost:9005/image/image1.jpg]]</image>" +
+					"</flower></main>";
+					System.out.println(result);
+					writer.print(result);
+		
+	}
+
+}

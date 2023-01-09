@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ajax2.html 소스코딩</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+ 
+ <!-- 브라우저에서는 XML 데이터를 받은 후 제이쿼리의 find()에 메서드에
+ 	title 태그, write 태그, image 태그 이름으로 호출하여
+ 	각각의 플라워 정보를 가져옵니다. -->
+ 
+<script type="text/javascript">
+	function fn_process() {
+		$.ajax({
+			// get 방식으로 전송합니다.
+			type : "post",
+		// 응답 데이터를 텍스트로 지정합니다.
+			async: false,
+			// 전송할 서블릿을 지정합니다.
+			url:"http://localhost:9005/ajaxText2",
+			// 전송과 응답이 성공했을 경우의 작업을 설정합니다.
+			
+			// 데이터를 XML 형식으로 받습니다.
+			datType : "XML",
+			
+			success:function(info, textStatus){
+				$(info).find("flower").each(function(){
+					// 전송된 XML 데이터에서 엘리먼트(태그) 이름으로 데이터를 가져옵니다.
+					var title = $(this).find("title").text();
+					var writer = $(this).find("writer").text();
+					var image = $(this).find("image").text();
+					
+					//id가 flowerInfo 인 div 엘리먼트(태그)에 
+					//플라워 정보를 표시합니다.
+					$("#flowerInfo").append(
+						"<p>" + title + "</p>" +		
+						"<p>" + writer + "</p>" +		
+						//아래 " />" 부분에서 /> 앞에 공백 필요함
+						"<img src =" + image + " />"
+					);
+				});
+			},
+			// 작업 중 오류가 발생했을 경우에 수행할 작업을 설정합니다.
+			error : function(){
+				alert("에러가 발생했습니다.");
+			},
+			// 작업 완료시 수행할 작업을 설정합니다.
+			complete : function(){
+				alert("작업을 완료했습니다.")
+			}
+		});
+	}
+
+
+
+</script>
+</head>
+<body>
+	<input type="button" value="플라워 정보요청" onclick="fn_process()"/>
+	<br> <br>
+	<div id="flowerInfo"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>jQuery5.html 소스코딩</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+
+ 
+<script type="text/javascript">
+	function addImage(){
+		//버튼 클릭시 div 엘리먼트(태그)에 직접 접근하여 img 태그를 추가합니다.
+		$("div").html("<img src='../image/duke.png'/>");
+}
+</script>
+</head>
+<body>
+	<!-- div 엘리먼트(태그) 영역을 구성해 줍니다. -->
+	<div></div>
+	<!-- 버튼 클릭시 addImage() 함수를 호출합니다. -->
+	<input type="button" value="이미지 추가하기" onclick="addImage()"/>
+</body>
+</html>

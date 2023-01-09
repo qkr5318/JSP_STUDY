@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Insert title here</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+<!--  JSON(대문자로 작성함) 자료형을 실제로 사용하여 값을 출력하는 예시입니ㅏㄷ.
+		여기서는 JSON 배열에 문자열 정보를 저장한 후 웹 페이지에 출력하게 됩니다. -->
+
+<script type="text/javascript">
+	$(function(){
+		$("#checkJson").click(function(){
+			// 이름을 저장하는 json 배열을 name으로 선언합니다.
+			var jsonStr = '{"name":["장나라", "김희선", "이영애"]}';
+			// 제이쿼리의 JSON(대문자로 작성함) 기능인 parse() 메서드를 이용해서
+			// JSON(대문자로 작성함) 자료형을 가져옵니다.
+			var jsonInfo = JSON.parse(jsonStr);
+			var output = "회워 이름<br>";
+			output += "==============<br>";
+			// 배열 이름 name으로 배열 요소에 반복 변수를 이용해서
+			// 차례로 접근하여 값을 가져옵니다.
+			for ( var i in jsonInfo.name) {
+				output += jsonInfo.name[i] + "<br>";
+			}
+			//회원 이름을 출력합니다.
+			$("#output").html(output)
+			
+			
+		})	
+		
+		
+	});
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

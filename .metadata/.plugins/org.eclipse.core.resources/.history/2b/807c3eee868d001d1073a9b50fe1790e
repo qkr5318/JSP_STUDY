@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ID 셀렉터 연습 : jQuery1.html 소스코딩</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+<!-- 제이쿼리의 class 선택자를 이용해서, div 태그에 접근하는 기능을 구현해 봅니다.
+	버튼을 클릭하면 함수에서 제이쿼리의 클래스 선택자를 사용해서 class1 클래스 이름을 갖고 있는
+	div 태그에 접근하여 이미지를 나타냅니다. -->
+ 
+<script type="text/javascript">
+// document에 DOM(Document Object Model)이 로드되는 이벤트 처리 함수 정의
+	function addImage(){
+		//버튼 클릭시 클래스 이름이 class1인 태그를 찾아서 img 태그를 추가합니다.
+		$(".class1").html("<img src='../image/duke.png'/>");
+	
+}
+
+</script>
+</head>
+<body>
+	<div>
+		<p id="article"></p>
+	</div>
+	<!-- 버튼 클릭시 addImage() 함수를 호출합니다. -->
+	<input type="button" value="이미지 추가하기" onclick="addImage()"/>
+
+
+</body>
+</html>

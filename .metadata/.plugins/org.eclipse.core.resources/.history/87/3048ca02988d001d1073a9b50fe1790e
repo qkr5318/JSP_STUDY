@@ -1,0 +1,57 @@
+package sec02;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+//JSON 배열에 회원 정보를 저장하여 JSP 페이지로 전송하고,
+//JSON 배열에 정보를 저장하는 과정은 다음과 같습니다.
+//첫번째 : memberInfo로 JSONObject 객체를 생성한 후
+//     회원 정보를 name/value 쌍으로 저장합니다.
+//두번째 : membersArray의 JSONArray 객체를 생성한 후
+//     회원 정보를 저장한 JSON 객체를 차례대로 저장 처리 합니다.
+//세번째 : membersArray 배열에 회원 정보를 저장한 후
+//     totalObject로 JSONObject 객체를 생성하여
+//     name에는 자바스크립트에서 접근할 때 사용하는 이름인
+//     members를, value에는 memebersArray를 최종적으로 저장 처리합니다.
+
+@WebServlet("/json2")
+public class JsonServlet2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+
+	private void doHandler(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
+		String jsonInfo = request.getParameter("jsonInfo");
+		try {
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(jsonInfo);
+			System.out.println("*** 회원 정보 ***");
+			System.out.println(jsonObject.get("name"));
+			System.out.println(jsonObject.get("age"));
+			System.out.println(jsonObject.get("gender"));
+			System.out.println(jsonObject.get("nickname"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+}
+

@@ -1,0 +1,103 @@
+package sec02;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+//여러 개의 배열을 JSON으로 전달 처리하는 웹 프로그램을 제작합니다. 
+//우선, 여러개의 배열을 전송하는 과정은 다음과 같습니다.
+//첫번째 : flowerInfo로 JSONObject 객체를 생성한 후
+//     플라워 정보를 name/value 쌍으로 저장합니다.
+//두번째 : flowerArray의 JSONArray 객체를 생성한 후
+//     플라원 정보를 저장한 flowerInfo를 차례대로 저장 처리 합니다.
+//세번째 : 이미 회원 배열을 저장하고 있는 totalObject의 name에는
+//     배열 이름에 해당하는 flowers를, value에는 flowerArray를
+//     최종적으로 저장 처리 합니다.
+
+@WebServlet("/json3")
+public class JsonServlet3 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandler(request, response);
+	}
+
+	private void doHandler(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter writer = response.getWriter();
+		
+		// 배열을 저장할 totalObject를 정의합니다.
+		JSONObject totalObject = new JSONObject();
+		// memberInfo JSON 객체를 저장할 memberArray 배열을 정의합니다.
+		JSONArray membersArray = new JSONArray();
+		
+		//회원 한 명의 정보가 들어갈 memberInfo JSON 객체를 정의합니다
+		JSONObject memberInfo = new JSONObject();
+		
+		// 회원정보를 name/value 쌍으로 저장처리합니다.
+		memberInfo.put("name", "장나라");
+		memberInfo.put("age", "25");
+		memberInfo.put("gender", "여성");
+		memberInfo.put("nickname", "가수");
+		
+		// 회원 정보를 다시 membersArray 배열에 저장(추가) 합니다.
+		membersArray.add(memberInfo);
+		
+		//다른 회원 정보를 name/value 쌍으로 저장한 후 membersArray에 다시 저장 처리 합니다.
+		memberInfo = new JSONObject();
+		memberInfo.put("name", "김연아");
+		memberInfo.put("age", "21");
+		memberInfo.put("gender", "여성");
+		memberInfo.put("nickname", "피겨스케이트선수");
+		membersArray.add(memberInfo);
+		
+		// totalObject에 members라는 name으로 membersArray를 value로 저장 처리합니다.
+		totalObject.put("members", membersArray);
+		
+		// 플라워 관련 JSONArray 객체를 생성합니다.
+		JSONArray flowerArray = new JSONArray();
+		JSONArray flowerInfo = new JSONArray();
+		
+		// JSONObject 객체를 생성한 후 플라워 정보를 저장처리합니다.
+		flowerInfo.put("title", "첫번째 아름다운 꽃");
+		flowerInfo.put("writer", "장나라");
+		flowerInfo.put("price", "30000");
+		flowerInfo.put("genre", " Travel");
+		flowerInfo.put("image", "http://localhost:9005/image/image1.jpg");
+		
+		// flowerArray에 객체를 저장처리합니다.
+		flowerArray.add(flowerInfo);
+		
+		// JSONObject 객체를 생성한 후 플라워 정보를 저장처리합니다.
+				flowerInfo.put("title", "두번째 아름다운 꽃");
+				flowerInfo.put("writer", "김희나라");
+				flowerInfo.put("price", "30000");
+				flowerInfo.put("genre", " Travel");
+				flowerInfo.put("image", "http://localhost:9005/image/image2.jpg");
+				
+				// flowerArray에 객체를 저장처리합니다.
+				flowerArray.add(flowerInfo);
+		
+		//JSONObject를 문자열로 변환 처리 합니다.
+		String jsonInfo = totalObject.toJSONString();
+		System.out.println("★★★" + jsonInfo); // 서버 콘솔에 정보를 표시합니다.
+		
+		// JSON 데이터를 브라우저로 전송합니다.
+		writer.print(jsonInfo);
+	}
+}
+

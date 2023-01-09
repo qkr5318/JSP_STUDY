@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Insert title here</title>
+<!-- jQuery는 파일 연계 방식 또는 CDN 연계 방식으로 활용이 가능하며,
+          여기서는 CDN 연계 방식으로 활용합니다. -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+<!--  이번에는 JSON 객체에 회원 정보를 저정한 후, 다시 회원 정보를 출력해 보겠습니다. -->
+<script type="text/javascript">
+	$(function(){
+		$("#checkJson").click(function(){
+			// members 배열에 회원 정보를 객체의 name/value 쌍으로 저장 처리합니다. 저장하는 json 객체 name, 나이를 저장하는 json 객체 age으로 선언합니다.
+			var jsonStr = '{"name":"장나라", "age":21, "gender":"여성", "nickname":"가수"]}';
+			// 제이쿼리의 JSON(대문자로 작성함) 기능인 parse() 메서드를 이용해서
+			// JSON(대문자로 작성함) 자료형을 가져옵니다.
+			var jsonInfo = JSON.parse(jsonStr);
+			var output = "회워 정보<br>";
+			output += "==============<br>";
+			//배열 요소(나이)를 차례대로 출력합니다.
+			output += "이름 : " + jasonInfo.name + "<br>";
+			output += "나이 : " + jasonInfo.age + "<br>";
+			output += "성별 : " + jasonInfo.gender + "<br>";
+			output += "별명 : " + jasonInfo.nickname + "<br>";
+			
+			//회원 이름을 출력합니다.
+			$("#output").html(output);
+		});
+	});
+</script>
+
+</head>
+<body>
+	<a id="checkJson" style="cursor:pointer">텍스트를 클릭하시면 아래에 회원 정보 목록이 표시 됩니다.</a>
+	<br> <hr>
+	<div id="output"></div>
+	
+	
+</body>
+</html>
