@@ -150,3 +150,16 @@
 0:0:0:0:0:0:0:1 - - [09/Jan/2023:18:27:01 +0900] "GET /EIGHTH_JSP/update//update.jsp?MEMBERID=leeyoungae&NAME=%EA%B0%90%EC%8A%A4%ED%8A%B8 HTTP/1.1" 200 340
 0:0:0:0:0:0:0:1 - - [09/Jan/2023:18:27:01 +0900] "GET /EIGHTH_JSP/update//update.jsp?MEMBERID=leeyoungae&NAME=%EA%B0%90%EC%8A%A4%ED%8A%B8 HTTP/1.1" 200 340
 0:0:0:0:0:0:0:1 - - [09/Jan/2023:18:27:01 +0900] "GET /EIGHTH_JSP/update//update.jsp?MEMBERID=leeyoungae&NAME=%EA%B0%90%EC%8A%A4%ED%8A%B8 HTTP/1.1" 200 340
+127.0.0.1 - - [09/Jan/2023:21:41:07 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:41:10 +0900] "GET /EIGHTH_JSP/viewMemberList.jsp HTTP/1.1" 200 818
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:41:10 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:41:33 +0900] "GET /EIGHTH_JSP/update/updateForm.jsp HTTP/1.1" 200 580
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:41:34 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:41:47 +0900] "GET /EIGHTH_JSP/viewMemberList.jsp HTTP/1.1" 200 818
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:42:01 +0900] "GET /EIGHTH_JSP/update/update.jsp?MEMBERID=jangnara&NAME=%EA%B0%90%EC%8A%A4%ED%8A%B8 HTTP/1.1" 200 338
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:42:08 +0900] "GET /EIGHTH_JSP/viewMemberList.jsp HTTP/1.1" 200 818
+127.0.0.1 - - [09/Jan/2023:21:43:14 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:43:16 +0900] "GET /NaverSearchAPI/SearchView.jsp HTTP/1.1" 200 3681
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:43:16 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:43:24 +0900] "GET /NaverSearchAPI.do?keyword=%EA%B0%95%EB%82%A8%EC%97%AD%20%EB%A7%9B%EC%A7%91&startNum=1 HTTP/1.1" 200 124
+0:0:0:0:0:0:0:1 - - [09/Jan/2023:21:43:30 +0900] "GET /NaverSearchAPI.do?keyword=%EA%B0%95%EB%82%A8%EC%97%AD%20%EB%A7%9B%EC%A7%91&startNum=1 HTTP/1.1" 200 124

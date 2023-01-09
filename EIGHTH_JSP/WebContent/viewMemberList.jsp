@@ -72,7 +72,7 @@ MEMBER 테이블의 내용
 			ex.printStackTrace();
 		}
 		
-		// 7. 커넥션 종료
+		// 7. 커넥션 종료`
 		if(conn != null) try{
 			conn.close();
 		}catch(SQLException ex){
