@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<form action="helloda.do" method="get">
+	<form action="helloda.do" method="post">
 	<!-- 
 		 <form action="hello" method="get">
 	 -->

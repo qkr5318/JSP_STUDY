@@ -67,3 +67,29 @@
 1월 10, 2023 16:03:58.888 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
 1월 10, 2023 16:55:57.524 [12468:9112:0110/165557.523:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 1월 10, 2023 17:32:38.883 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+
+1월 10, 2023 21:48:33.399 NEW SESSION
+1월 10, 2023 21:48:33.399 [27292:25504:0110/214833.397:ERROR:device_event_log_impl.cc(215)] [21:48:33.397] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 21:48:51.462 [27292:8748:0110/214851.462:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 10, 2023 21:48:51.463 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 10, 2023 21:48:51.463 ERROR: Failed parsing Certificate
+1월 10, 2023 21:48:51.463 
+1월 10, 2023 22:01:22.557 [27292:14200:0110/220122.557:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 10, 2023 22:01:22.557 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 10, 2023 22:01:22.558 ERROR: Failed parsing Certificate
+1월 10, 2023 22:01:22.558 
+1월 10, 2023 22:17:08.308 [18780:26840:0110/221708.307:ERROR:device_event_log_impl.cc(215)] [22:17:08.308] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 22:27:07.80 [18780:21388:0110/222707.080:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 10, 2023 22:27:07.81 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 10, 2023 22:27:07.82 ERROR: Failed parsing Certificate
+1월 10, 2023 22:27:07.82 
+1월 10, 2023 22:28:04.251 [18780:21388:0110/222804.251:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+1월 10, 2023 22:28:04.252 ERROR: Couldn't read tbsCertificate as SEQUENCE
+1월 10, 2023 22:28:04.252 ERROR: Failed parsing Certificate
+1월 10, 2023 22:28:04.252 
+1월 10, 2023 22:56:59.427 [17552:15956:0110/225659.427:ERROR:device_event_log_impl.cc(215)] [22:56:59.427] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 22:57:43.138 [17172:11020:0110/225743.138:ERROR:device_event_log_impl.cc(215)] [22:57:43.138] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 22:58:33.24 [17200:5256:0110/225833.023:ERROR:device_event_log_impl.cc(215)] [22:58:33.023] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 22:59:25.251 [27288:9212:0110/225925.251:ERROR:device_event_log_impl.cc(215)] [22:59:25.250] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 23:04:14.11 [26720:31168:0110/230414.010:ERROR:device_event_log_impl.cc(215)] [23:04:14.010] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+1월 10, 2023 23:04:43.953 [16608:30840:0110/230443.953:ERROR:device_event_log_impl.cc(215)] [23:04:43.953] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.

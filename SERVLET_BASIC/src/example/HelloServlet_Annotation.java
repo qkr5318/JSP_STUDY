@@ -32,5 +32,19 @@ public class HelloServlet_Annotation extends HttpServlet {
 			out.println("</body></html>");
 	
 	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head><title>환영합니다.</title></head>");
+		out.println("<body>");
+		out.println("안녕하세요");
+		out.println(request.getParameter("name"));
+		out.println("님 환영합니다");
+		out.println("</body></html>");
+		
+	}
 
 }

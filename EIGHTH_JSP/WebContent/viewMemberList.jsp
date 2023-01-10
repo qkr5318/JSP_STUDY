@@ -36,7 +36,7 @@ MEMBER 테이블의 내용
 	String dbUser = "jspexam";
 	String dbpass = "jsppw";
 	// select * from member order by MEMBERID desc;
-	String query = "select * from member order by email desc;";
+	String query = "select * from member order by NAME desc;";
 	
 	// 2. 데이터베이스 커넥션 생성
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbpass);
