@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>MVC_BASIC</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>	
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+	 
+  <!-- 서블릿으로 사용할 클래스를 등록하고, 
+  		서블릿과 URL간의 매핑 작업을 web.xml에 코딩합니다. -->
+  		<servlet>
+  			<servlet-name>SimpleController</servlet-name>
+  			<servlet-class>mvc.simple.SimpleController</servlet-class>
+  		</servlet>
+		<servlet-mapping>
+			<servlet-name>SimpleController</servlet-name>
+			<url-pattern>/simple</url-pattern>
+		</servlet-mapping>  
+</web-app>
