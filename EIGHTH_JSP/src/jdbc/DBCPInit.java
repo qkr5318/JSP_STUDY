@@ -12,8 +12,6 @@ import org.apache.commons.dbcp2.PoolableConnectionFactory;
 import org.apache.commons.dbcp2.PoolingDriver;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-// GenericObjectPoolConfig 클래스는 커넥션 풀의 최대 크기를 지정할 수 있는 setMaxTotal()메서드를 제공한다. setMaxTotal() 메서드를 포함해 커넷견 풀의 개수와 대기 시간을 설정
-
 
 // DBCP (DATA BASE CONNECTION POOL)
 // DBCP 이용 커넥션 풀 사용을 위해서
@@ -81,9 +79,9 @@ public class DBCPInit extends HttpServlet {
 			// 풀에 보관중인 커넥션 유효 검사 설정(true)
 			poolConfig.setTestWhileIdle(true); 
 			// 접속자가 많아지면 서버가 다운이 될수 있음으로 접속자에 수를 정해놓기 위하여 최소 최대 값을 지정하여 관리를 할 수 있게하는 로직 CONNECTION POOL
-			// 커넥션 최소 개수 (4) 설정 / idle 대기하는, 유휴의(쓰지않고 대기) 유휴갯수 지정
+			// 커넥션 최소 개수 (4) 설정
 			poolConfig.setMinIdle(4); 
-			// 커넥션 최대 개수 (50) 설정 **(-1)음수면 제한이 없다
+			// 커넥션 최대 개수 (50) 설정
 			poolConfig.setMaxTotal(50); 
 			
 			// 커넥션 풀을 생성합니다. 생성자는 PoolableConnection을 생성할 때
